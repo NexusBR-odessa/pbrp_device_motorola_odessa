@@ -102,10 +102,21 @@ PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
 
-# TWRP Configuration
+# PBRP Configuration
+PB_DEVICE_CODE := odessa
+PB_MAINTAINER := carlinhosamacavalos
+PB_BUILD_VERSION := 4.0
+PB_BUILD_TYPE := Official
+PB_DISABLE_DEFAULT_DM_VERITY := true
+PB_ENABLE_USB_STORAGE := true
+PB_DISABLE_MTP := false
+PB_NO_SAR_AUTODETECT := true
+PB_TORCH_PATH := "/sys/class/leds/torch-light0/brightness"
+
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
 TW_INCLUDE_REPACKTOOLS := true
+

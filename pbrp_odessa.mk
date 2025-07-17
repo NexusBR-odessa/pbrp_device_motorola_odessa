@@ -20,10 +20,3 @@ PRODUCT_NAME := omni_odessa
 PRODUCT_BRAND := motorola
 PRODUCT_MODEL := moto g(9) plus
 PRODUCT_MANUFACTURER := motorola
-
-PRODUCT_GMS_CLIENTID_BASE := android-motorola
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="odessa_retail-user 11 RPAS31.Q2-59-17-3 0a646 release-keys"
-
-BUILD_FINGERPRINT := motorola/odessa_retail/odessa:11/RPAS31.Q2-59-17-3/0a646:user/release-keys
