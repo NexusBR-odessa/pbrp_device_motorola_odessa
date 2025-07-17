@@ -6,9 +6,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_odessa.mk
+    $(LOCAL_DIR)/pb_odessa.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_odessa-user \
-    omni_odessa-userdebug \
-    omni_odessa-eng
+    pb_odessa-user \
+    pb_odessa-userdebug \
+    pb_odessa-eng
