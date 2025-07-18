@@ -1,6 +1,24 @@
-/             ext4     /dev/block/bootdevice/by-name/system       flags=display=;slotselect
-/data         ext4     /dev/block/bootdevice/by-name/userdata     flags=display=data
-/sdcard       vfat     /dev/block/mmcblk0p1                       flags=display=sdcard
-/boot         emmc     /dev/block/bootdevice/by-name/boot         flags=display=boot
-/recovery     emmc     /dev/block/bootdevice/by-name/recovery     flags=display=recovery
-/misc         emmc     /dev/block/bootdevice/by-name/misc         flags=display=misc
+k# This file is used by TWRP and PBRP to mount partitions.
+# See https://source.android.com/devices/tech/ota/dynamic_partitions/implement#flashable-recovery for more info.
+
+# Mountpoint      FSType    Device                                                    Flags
+/dev/block/by-name/super      /super        emmc     flags=display="Super",backup=0,wipeafter=0,noemulatefs,can_be_mounted,wrapped,resize,formattable
+/system           ext4      system                                                    flags=display="System",logical,slotselect
+/vendor           ext4      vendor                                                    flags=display="Vendor",logical,slotselect
+/product          ext4      product                                                   flags=display="Product",logical,slotselect
+/system_ext       ext4      system_ext                                                flags=display="System Ext",logical,slotselect
+/odm              ext4      odm                                                       flags=display="ODM",logical,slotselect
+
+/data             ext4      /dev/block/bootdevice/by-name/userdata                    flags=display="Data",encryptable=footer,length=-16384,formattable
+/cache            ext4      /dev/block/bootdevice/by-name/cache                       flags=display="Cache",formattable
+/boot             emmc      /dev/block/bootdevice/by-name/boot                        flags=display="Boot",backup=1;flashimg
+/recovery         emmc      /dev/block/bootdevice/by-name/recovery                    flags=display="Recovery",backup=1;flashimg
+/misc             emmc      /dev/block/bootdevice/by-name/misc                        flags=display="Misc"
+/metadata         emmc      /dev/block/bootdevice/by-name/metadata                    flags=display="Metadata",backup=0,wipeafter=0
+/dtbo             emmc      /dev/block/bootdevice/by-name/dtbo                        flags=display="DTBO",backup=1;flashimg
+/splash           emmc      /dev/block/bootdevice/by-name/splash                      flags=display="Splash"
+/external_sd      vfat      /dev/block/mmcblk0p1                                      flags=display="Micro SDcard";storage;wipeingui;removable
+# If you have an internal storage that is NOT /data:
+/usb_otg          vfat      /dev/block/sda1                                           flags=display="USB OTG";storage;wipeingui;removable
+
+
